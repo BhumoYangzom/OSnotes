@@ -1,0 +1,35 @@
+threads: specialized process by clone with different executions. 
+
+void *(*start)(void *) // declare start as pointer to function (pointer to void) returning pointer to void.
+
+int pthread_creat (pthread_t *thread, const pthread_attr_t *attr, void *(*start)(void *), void *arg)
+pthreat_t pthread_exit (void *retval)
+pthread_self // to find whether using a particular pthread.
+
+int main (int argc, char **argc){
+
+pthread_t t1; 
+
+void *res;
+
+int s;
+
+s = pthread_creat (&t1, NULL, threadFunc, "Hello world \n");
+
+if (s!=0)
+  {
+    errExitEN (s, "pthread_create");
+  }
+ 
+ printf ("Message from main() \n", (long) res);
+
+exit (EXIT_SUCCESS); 
+ 
+}
+
+
+#include <pthread.h>
+
+
+
+
